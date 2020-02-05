@@ -1,10 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
-Vue.config.productionTip = false
-
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import APlayer from '@moefe/vue-aplayer';
+Vue.use(APlayer);
+Vue.prototype.$axios = axios
+Vue.use(VueAxios, axios)
+Vue.use(ElementUI);
+Vue.config.productionTip = true
 new Vue({
-  router,
-  render: function (h) { return h(App) }
+    router,
+    render: h => h(App)
 }).$mount('#app')
